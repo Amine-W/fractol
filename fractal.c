@@ -6,20 +6,20 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:26:59 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/23 13:35:12 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/23 16:14:24 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void fractal(int argc, char **argv, t_mlx *mlx)
+void	fractal(int argc, char **argv, t_mlx *mlx)
 {
 	double	c_r;
 	double	c_i;
 	
-	if (ft_strcmp(argv[1], "mandelbrot") == 0)
-		draw_mandelbrot(mlx);
-	else if (ft_strcmp(argv[1], "julia") == 0)
+	// if (ft_strcmp(argv[1], "mandelbrot") == 0)
+	// 	draw_mandelbrot(mlx);
+	/* else */if (ft_strcmp(argv[1], "julia") == 0)
 	{
 		if (argc != 4)
 			exit_fractol(mlx, "Invalid Julia parameters");

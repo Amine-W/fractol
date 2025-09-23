@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 09:35:25 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/23 13:35:11 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/23 16:10:56 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int	main(int argc, char **argv)
 	// if (argc != 2)
 	// 	return (0);
 	mlx.init = mlx_init();
-	
 	mlx.win = mlx_new_window(mlx.init, 1920, 1080, "Fractol");
 	mlx.img = mlx_new_image(mlx.init, 1920, 1080);
+	mlx.img_data = mlx_get_data_addr(mlx.img, &mlx.bpp, &mlx.line_len, &mlx.endian);
 	fractal(argc, argv, &mlx);
 	mlx_key_hook(mlx.win, handle_keypress, &mlx);
 	mlx_hook(mlx.win, 17, 0, handle_close, &mlx);

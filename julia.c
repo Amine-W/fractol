@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   juila.c                                            :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:36:52 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/23 16:03:24 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/23 16:24:57 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	julia_iteration(t_julia *julia)
 	double	zy;
 	double	temp;
 
-	zx = (julia->x - 960.0) * 4.0 / 1920.0;
-	zy = (julia->y - 540.0) * 4.0 / 1080.0;
+	zx = (julia->x - 480.0) * 4.0 / 960.0;
+	zy = (julia->y - 270.0) * 4.0 / 540.0;
 	julia->iter = 0;
 	while (julia->iter < julia->max_iter && (zx * zx + zy * zy) < 4.0)
 	{
@@ -61,10 +61,10 @@ void	draw_julia(t_mlx *mlx, double c_r, double c_i)
 	julia.c_imag = c_i;
 	julia.max_iter = 100;
 	julia.y = -1;
-	while (++julia.y < 1080)
+	while (++julia.y < 540)
 	{
 		julia.x = -1;
-		while (++julia.x < 1920)
+		while (++julia.x < 960)
 		{
 			julia_iteration(&julia);
 			julia.color = get_color(&julia);

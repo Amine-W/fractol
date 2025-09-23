@@ -1,0 +1,6 @@
+[submodule "printf"]
+	path = printf
+	url = https://github.com/Amine-W/printf
+[submodule "minilibx-linux"]
+	path = minilibx-linux
+	url = https://github.com/42Paris/minilibx-linux.git

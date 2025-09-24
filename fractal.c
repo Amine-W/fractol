@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:26:59 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:05:19 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 13:29:21 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@ void	fractal(int argc, char **argv, t_mlx *mlx)
 	{
 		mlx->fractal_type = MANDELBROT;
 		draw_mandelbrot(mlx);
+	}
+	else if (ft_strcmp(argv[1], "burningship") == 0)
+	{
+		mlx->fractal_type = BURNINGSHIP;
+		draw_burningship(mlx);
 	}
 	else if (ft_strcmp(argv[1], "julia") == 0)
 	{
@@ -31,7 +36,7 @@ void	fractal(int argc, char **argv, t_mlx *mlx)
 	else
 	{
 		ft_printf("Unknown fractal: %s\n", argv[1]);
-		ft_printf("Available: mandelbrot, julia\n");
+		ft_printf("Available: mandelbrot, julia, burningship\n");
 		exit_fractol(mlx, "Invalid fractal type");
 	}
 }

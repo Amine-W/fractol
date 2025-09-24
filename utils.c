@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 10:56:22 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:09:29 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 15:31:15 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,19 @@ int	get_mandel_color(t_mandelbrot *mandel)
 	r = (mandel->iter * 25 + 200) % 255;
 	g = (mandel->iter * 8 + 50) % 255;
 	b = (mandel->iter * 12 + 100) % 255;
+	return ((r << 16) | (g << 8) | b);
+}
+
+int	get_burningship_color(t_burningship *burningship)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	if (burningship->iter == burningship->max_iter)
+		return (0x000000);
+	r = (burningship->iter * 20 + 180) % 255;
+	g = (burningship->iter * 10 + 100) % 255;
+	b = (burningship->iter * 5 + 60) % 255;
 	return ((r << 16) | (g << 8) | b);
 }

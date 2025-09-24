@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 09:36:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:07:03 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 15:33:27 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define MANDELBROT 1
 # define JULIA 2
+# define BURNINGSHIP 3
 
 # include <stdio.h>
 # include <unistd.h>
@@ -22,6 +23,7 @@
 # include "minilibx-linux/mlx.h"
 # include "ft_printf/ft_printf.h"
 # include "Libft/libft.h"
+# include "math.h"
 
 typedef struct s_mlx
 {
@@ -64,6 +66,19 @@ typedef struct s_mandelbrot
 	int		max_iter;
 }	t_mandelbrot;
 
+typedef struct s_burningship
+{
+	double	c_real;
+	double	c_imag;
+	double	z_real;
+	double	z_imag;
+	int		x;
+	int		y;
+	int		iter;
+	int		color;
+	int		max_iter;
+}	t_burningship;
+
 //events
 int		handle_close(void *param);
 void	exit_fractol(t_mlx *mlx, const char *str);
@@ -76,9 +91,12 @@ void	fractal(int argc, char **argv, t_mlx *mlx);
 void	draw_julia(t_mlx *mlx, double c_r, double c_i);
 //mandelbrot
 void	draw_mandelbrot(t_mlx *mlx);
+//burningship
+void	draw_burningship(t_mlx *mlx);
 //utils
 void	put_pixel_to_image(t_mlx *mlx, int x, int y, int color);
 int		get_mandel_color(t_mandelbrot *mandel);
 int		get_julia_color(t_julia *julia);
+int		get_burningship_color(t_burningship *burningship);
 
 #endif

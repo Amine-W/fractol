@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:01:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:04:55 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 13:28:33 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int	handle_mouse(int button, int x, int y, t_mlx *mlx)
 	}
 	if (mlx->fractal_type == MANDELBROT)
 		draw_mandelbrot(mlx);
+	else if (mlx->fractal_type == BURNINGSHIP)
+		draw_burningship(mlx);
 	else if (mlx->fractal_type == JULIA)
 		draw_julia(mlx, mlx->julia_c_real, mlx->julia_c_imag);
 	return (0);

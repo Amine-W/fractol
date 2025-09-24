@@ -6,7 +6,7 @@
 #    By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/23 11:07:32 by amwahab           #+#    #+#              #
-#    Updated: 2025/09/23 16:13:20 by amwahab          ###   ########.fr        #
+#    Updated: 2025/09/24 11:09:52 by amwahab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = fractol
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
 
-SRC = fractol.c events.c exit.c julia.c fractal.c
+SRC = fractol.c events.c exit.c julia.c mandelbrot.c fractal.c utils.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = Libft

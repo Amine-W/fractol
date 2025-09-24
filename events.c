@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:01:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/23 11:44:56 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 11:23:28 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,31 @@ int handle_close(void *param)
 	mlx_destroy_display(mlx->init);
 	free(mlx->init);
 	exit(0);
+	return (0);
+}
+
+int	handle_mouse(int button, int x, int y, t_mlx *mlx)
+{
+	double	mouse_real;
+	double	mouse_imag;
+
+	mouse_real = (x - 480.0) / mlx->zoom + mlx->offset_x;
+	mouse_imag = (y - 270.0) / mlx->zoom + mlx->offset_y;
+	if (button == 4)
+	{
+		mlx->zoom *= 1.5;
+		mlx->offset_x = mouse_real - (x - 480.0) / mlx->zoom;
+		mlx->offset_y = mouse_imag - (y - 270.0) / mlx->zoom;
+	}
+	else if (button == 5)
+	{
+		mlx->zoom *= 0.7;
+		mlx->offset_x = mouse_real - (x - 480.0) / mlx->zoom;
+		mlx->offset_y = mouse_imag - (y - 270.0) / mlx->zoom;
+	}
+	if (mlx->fractal_type == MANDELBROT)
+		draw_mandelbrot(mlx);
+	else if (mlx->fractal_type == JULIA)
+		draw_julia(mlx, mlx->julia_c_real, mlx->julia_c_imag);
 	return (0);
 }

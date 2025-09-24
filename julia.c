@@ -6,42 +6,20 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:36:52 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/23 16:24:57 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 11:48:30 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	put_pixel(t_mlx *mlx, int x, int y, int color)
-{
-	char	*pixel;
-
-	pixel = mlx->img_data + (y * mlx->line_len + x * (mlx->bpp / 8));
-	*(int *)pixel = color;
-}
-
-int	get_color(t_julia *julia)
-{
-	int	r;
-	int	g;
-	int	b;
-
-	if (julia->iter == julia->max_iter)
-		return (0x000000);
-	r = (julia->iter * 9) % 255;
-	g = (julia->iter * 15) % 255;
-	b = (julia->iter * 25) % 255;
-	return ((r << 16) | (g << 8) | b);
-}
-
-int	julia_iteration(t_julia *julia)
+int	julia_iteration(t_julia *julia, t_mlx *mlx)
 {
 	double	zx;
 	double	zy;
 	double	temp;
 
-	zx = (julia->x - 480.0) * 4.0 / 960.0;
-	zy = (julia->y - 270.0) * 4.0 / 540.0;
+	zx = (julia->x - 480.0) / mlx->zoom + mlx->offset_x;
+	zy = (julia->y - 270.0) / mlx->zoom + mlx->offset_y;
 	julia->iter = 0;
 	while (julia->iter < julia->max_iter && (zx * zx + zy * zy) < 4.0)
 	{
@@ -59,16 +37,16 @@ void	draw_julia(t_mlx *mlx, double c_r, double c_i)
 
 	julia.c_real = c_r;
 	julia.c_imag = c_i;
-	julia.max_iter = 100;
+	julia.max_iter = 50;
 	julia.y = -1;
 	while (++julia.y < 540)
 	{
 		julia.x = -1;
 		while (++julia.x < 960)
 		{
-			julia_iteration(&julia);
-			julia.color = get_color(&julia);
-			put_pixel(mlx, julia.x, julia.y, julia.color);
+			julia_iteration(&julia, mlx);
+			julia.color = get_julia_color(&julia);
+			put_pixel_to_image(mlx, julia.x, julia.y, julia.color);
 		}
 	}
 	mlx_put_image_to_window(mlx->init, mlx->win, mlx->img, 0, 0);

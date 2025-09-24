@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:26:59 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 11:29:20 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 13:05:19 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	fractal(int argc, char **argv, t_mlx *mlx)
 {
 	if (ft_strcmp(argv[1], "mandelbrot") == 0)
-	 {
+	{
 		mlx->fractal_type = MANDELBROT;
 		draw_mandelbrot(mlx);
 	}

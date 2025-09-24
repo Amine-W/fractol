@@ -1,0 +1,47 @@
+# Dragon spiral - très populaire
+./fractol julia -0.7269 0.1889
+
+# Lapin de Douady
+./fractol julia -0.123 0.745
+
+# Dendrites (formes d'arbres)
+./fractol julia 0.285 0.01
+
+# Forme quasi-symétrique
+./fractol julia -0.8 0.156
+
+# Beaucoup de variations colorées
+./fractol julia -0.4 0.6
+
+# Contrastes élevés
+./fractol julia -0.1 0.651
+
+# Formes complexes avec détails
+./fractol julia -0.75 0.11
+
+# Très coloré avec transitions rapides
+./fractol julia 0.3 0.5
+
+# Spirale double
+./fractol julia -0.7 0.27015
+
+# Forme déconnectée
+./fractol julia 0.45 0.1428
+
+# Quasi-connexe
+./fractol julia -1.25 0
+
+# Poussière de Cantor
+./fractol julia -2 0
+
+# Proche du bord de convergence
+./fractol julia -0.835 -0.2321
+
+# Valeurs très petites
+./fractol julia 0.001 0.001
+
+# Une coordonnée nulle
+./fractol julia 0.5 0
+
+# Valeurs négatives importantes
+./fractol julia -1.5 -0.5

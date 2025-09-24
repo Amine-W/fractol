@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:36:52 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 11:48:30 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 13:07:23 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	julia_iteration(t_julia *julia, t_mlx *mlx)
 	double	zy;
 	double	temp;
 
-	zx = (julia->x - 480.0) / mlx->zoom + mlx->offset_x;
-	zy = (julia->y - 270.0) / mlx->zoom + mlx->offset_y;
+	zx = (julia->x - 350) / mlx->zoom + mlx->offset_x;
+	zy = (julia->y - 350) / mlx->zoom + mlx->offset_y;
 	julia->iter = 0;
 	while (julia->iter < julia->max_iter && (zx * zx + zy * zy) < 4.0)
 	{
@@ -37,12 +37,12 @@ void	draw_julia(t_mlx *mlx, double c_r, double c_i)
 
 	julia.c_real = c_r;
 	julia.c_imag = c_i;
-	julia.max_iter = 50;
+	julia.max_iter = 80;
 	julia.y = -1;
-	while (++julia.y < 540)
+	while (++julia.y < 700)
 	{
 		julia.x = -1;
-		while (++julia.x < 960)
+		while (++julia.x < 700)
 		{
 			julia_iteration(&julia, mlx);
 			julia.color = get_julia_color(&julia);

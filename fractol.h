@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 09:36:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 11:48:58 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/24 13:07:03 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 # include "minilibx-linux/mlx.h"
 # include "ft_printf/ft_printf.h"
 # include "Libft/libft.h"
-
 
 typedef struct s_mlx
 {
@@ -41,7 +40,6 @@ typedef struct s_mlx
 	double	julia_c_imag;
 }	t_mlx;
 
-
 typedef struct s_julia
 {
 	double		c_real;
@@ -51,20 +49,20 @@ typedef struct s_julia
 	int			iter;
 	int			color;
 	int			max_iter;
-} t_julia;
+}	t_julia;
 
 typedef struct s_mandelbrot
 {
 	double	c_real;
 	double	c_imag;
 	double	z_real;
-	double		z_imag;
+	double	z_imag;
 	int		x;
 	int		y;
 	int		iter;
 	int		color;
 	int		max_iter;
-} t_mandelbrot;
+}	t_mandelbrot;
 
 //events
 int		handle_close(void *param);

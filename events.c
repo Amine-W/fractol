@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:01:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/25 13:07:17 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/25 15:40:16 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int	handle_keypress(int keycode, void *params)
 		handle_arrows(keycode, mlx);
 	else if (keycode == 113)
 	{
-		if (mlx->iter_count > 10)
+		if (mlx->iter_count > 0)
 			mlx->iter_count -= 10;
 		redraw_fractal(mlx);
 	}
 	else if (keycode == 101)
 	{
-		if (mlx->iter_count < 200)
+		if (mlx->iter_count < 500)
 			mlx->iter_count += 10;
 		redraw_fractal(mlx);
 	}

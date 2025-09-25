@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:19:33 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 15:52:45 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/25 13:09:32 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	burningship_iteration(t_burningship *burn, t_mlx *mlx)
 	burn->c_real = (burn->x - 350.0) / mlx->zoom + mlx->offset_x;
 	burn->c_imag = (burn->y - 350.0) / mlx->zoom + mlx->offset_y;
 	burn->iter = 0;
-	while (burn->iter < 100 && (burn->z_real * burn->z_real
+	while (burn->iter < burn->max_iter && (burn->z_real * burn->z_real
 			+ burn->z_imag * burn->z_imag) < 4.0)
 	{
 		temp = (burn->z_real * burn->z_real)
@@ -38,7 +38,7 @@ void	draw_burningship(t_mlx *mlx)
 {
 	t_burningship	burn;
 
-	burn.max_iter = 100;
+	burn.max_iter = mlx->iter_count;
 	burn.y = -1;
 	while (++burn.y < 700)
 	{

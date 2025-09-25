@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:36:52 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:07:23 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/25 13:05:20 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	draw_julia(t_mlx *mlx, double c_r, double c_i)
 
 	julia.c_real = c_r;
 	julia.c_imag = c_i;
-	julia.max_iter = 80;
+	julia.max_iter = mlx->iter_count;
 	julia.y = -1;
 	while (++julia.y < 700)
 	{

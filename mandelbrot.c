@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 10:35:17 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:10:08 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/25 13:05:45 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	mandelbrot_iteration(t_mandelbrot *mandel, t_mlx *mlx)
 	mandel->c_real = (mandel->x - 350.0) / mlx->zoom + mlx->offset_x;
 	mandel->c_imag = (mandel->y - 350.0) / mlx->zoom + mlx->offset_y;
 	mandel->iter = 0;
-	while (mandel->iter < 180 && (mandel->z_real * mandel->z_real
+	while (mandel->iter < mandel->max_iter && (mandel->z_real * mandel->z_real
 			+ mandel->z_imag * mandel->z_imag) < 4.0)
 	{
 		temp = (mandel->z_real * mandel->z_real)
@@ -37,7 +37,7 @@ void	draw_mandelbrot(t_mlx *mlx)
 {
 	t_mandelbrot	mandel;
 
-	mandel.max_iter = 180;
+	mandel.max_iter = mlx->iter_count;
 	mandel.y = -1;
 	while (++mandel.y < 700)
 	{

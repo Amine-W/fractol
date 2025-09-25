@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 09:36:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 15:41:37 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/25 12:58:34 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_mlx
 	int		fractal_type;
 	double	julia_c_real;
 	double	julia_c_imag;
+	int		iter_count;
 }	t_mlx;
 
 typedef struct s_julia
@@ -87,6 +88,7 @@ int		handle_mouse(int button, int x, int y, t_mlx *mlx);
 
 //fractal
 void	fractal(int argc, char **argv, t_mlx *mlx);
+void	redraw_fractal(t_mlx *mlx);
 //julia
 void	draw_julia(t_mlx *mlx, double c_r, double c_i);
 //mandelbrot

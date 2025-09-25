@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 09:35:25 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:06:24 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/09/25 12:58:47 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int argc, char **argv)
 	mlx.zoom = 100.0;
 	mlx.offset_x = -0.5;
 	mlx.offset_y = 0.0;
+	mlx.iter_count = 50;
 	mlx.win = mlx_new_window(mlx.init, 700, 700, "Fractol");
 	mlx.img = mlx_new_image(mlx.init, 700, 700);
 	mlx.img_data = mlx_get_data_addr(mlx.img,

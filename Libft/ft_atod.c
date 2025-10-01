@@ -6,13 +6,13 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:48:57 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/23 12:54:34 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/10/01 12:24:15 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-double	ft_atof(const char *str)
+double	ft_atod(const char *str)
 {
 	double	result;
 	double	fraction;

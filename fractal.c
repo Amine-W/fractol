@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 12:26:59 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/24 13:29:21 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/10/01 12:25:18 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	fractal(int argc, char **argv, t_mlx *mlx)
 		if (argc != 4)
 			exit_fractol(mlx, "Invalid Julia parameters");
 		mlx->fractal_type = JULIA;
-		mlx->julia_c_real = atof(argv[2]);
-		mlx->julia_c_imag = atof(argv[3]);
+		mlx->julia_c_real = ft_atod(argv[2]);
+		mlx->julia_c_imag = ft_atod(argv[3]);
 		draw_julia(mlx, mlx->julia_c_real, mlx->julia_c_imag);
 	}
 	else

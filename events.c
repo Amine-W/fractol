@@ -6,7 +6,7 @@
 /*   By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 11:01:32 by amwahab           #+#    #+#             */
-/*   Updated: 2025/09/25 15:40:16 by amwahab          ###   ########.fr       */
+/*   Updated: 2025/10/01 10:21:18 by amwahab          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	handle_arrows(int keycode, t_mlx *mlx)
 int	handle_keypress(int keycode, void *params)
 {
 	t_mlx	*mlx;
-	
+
 	mlx = (t_mlx *)params;
 	if (keycode == 65307)
 		exit_fractol(mlx, "Escape pressed");

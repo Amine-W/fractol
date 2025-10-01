@@ -45,3 +45,9 @@
 
 # Valeurs négatives importantes
 ./fractol julia -1.5 -0.5
+
+# Il est cool
+./fractol julia 0.285 0.01
+
+# Burning julia
+./fractol julia -1.729 0.0

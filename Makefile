@@ -1,17 +1,16 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+: :+:    :+:        #
 #                                                     +:+ +:+         +:+      #
 #    By: amwahab <amwahab@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/23 11:07:32 by amwahab           #+#    #+#              #
-#    Updated: 2025/09/25 12:49:34 by amwahab          ###   ########.fr        #
+#    Updated: 2025/10/01 12:49:34 by amwahab          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fractol
-
 CC = cc
 CFLAGS = -Wall -Werror -Wextra -O2
 
@@ -24,9 +23,11 @@ LIBFT = $(LIBFT_DIR)/libft.a
 PRINTF_DIR = ft_printf
 PRINTF = $(PRINTF_DIR)/libftprintf.a
 
-MLX = -Lminilibx-linux -lmlx -lXext -lX11 -lm
+MLX_DIR = minilibx-linux
+MLX_REPO = https://github.com/42Paris/minilibx-linux.git
+MLX = -L$(MLX_DIR) -lmlx -lXext -lX11 -lm
 
-all: $(LIBFT) $(PRINTF) mlx $(NAME)
+all: $(LIBFT) $(PRINTF) $(MLX_DIR) mlx $(NAME)
 
 $(LIBFT):
 	@$(MAKE) -s -C $(LIBFT_DIR)
@@ -36,8 +37,13 @@ $(PRINTF):
 	@$(MAKE) -s -C $(PRINTF_DIR)
 	@echo "ft_printf ok"
 
-mlx:
-	@$(MAKE) -s -C minilibx-linux
+$(MLX_DIR):
+	@echo "Cloning MiniLibX..."
+	@git clone $(MLX_REPO) $(MLX_DIR)
+	@echo "MiniLibX cloned successfully"
+
+mlx: $(MLX_DIR)
+	@$(MAKE) -s -C $(MLX_DIR)
 	@echo "mlx ok"
 
 $(NAME): $(OBJ)
@@ -47,7 +53,7 @@ $(NAME): $(OBJ)
 clean:
 	@$(MAKE) -s clean -C $(LIBFT_DIR)
 	@$(MAKE) -s clean -C $(PRINTF_DIR)
-	@$(MAKE) -s clean -C minilibx-linux
+	@if [ -d "$(MLX_DIR)" ]; then $(MAKE) -s clean -C $(MLX_DIR); fi
 	@rm -f $(OBJ)
 
 fclean: clean
